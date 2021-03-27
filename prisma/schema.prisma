@@ -17,12 +17,14 @@ model Post {
 }
 
 model User {
-  id        Int      @default(autoincrement()) @id
-  name      String?
-  email     String?  @unique
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at") @updatedAt
-  posts     Post[]
+  id            Int       @default(autoincrement()) @id
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @map("updated_at") @updatedAt
+  posts         Post[]
 
   @@map("users")
 }
